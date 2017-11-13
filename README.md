@@ -1,2 +1,2 @@
-# 8-ball-pool
-A game of 8 Ball Pool made in Java as a final project for CSD207 Course
+# Parachute Panic
+[Parachute Panic](https://www.youtube.com/watch?v=mAKXffvPPAo) made in Java as a final project for CSD207 Course
