@@ -1,0 +1,26 @@
+#round-blue {
+    -fx-background-color: linear-gradient(#7ebcea, #2f4b8f);
+    -fx-background-radius: 30;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+}
+#round-blue:hover {
+    -fx-background-color: linear-gradient(#7ebcea, #2f4b8f);
+    -fx-background-radius: 30;
+    -fx-background-insets: 0;
+    -fx-text-fill: black;
+}
+
+#title,
+#highscore {
+    -fx-fill: linear-gradient(#7ebcea, #2f4b8f);
+}
+#title:hover{
+    -fx-fill: black;
+}
+
+#mainpane{
+	-fx-background-image: url("mainbg.jpg");
+	-fx-background-repeat: stretch;
+	-fx-background-size: 600 400;
+}
