@@ -14,10 +14,13 @@ public class Main extends Application{
 		
 		// FXMLs
 		Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
+		Parent help = FXMLLoader.load(getClass().getResource("Help.fxml"));
 		
 		// SCENES
 		Scene main_scene = new Scene(root, 600, 400);
 		main_scene.getStylesheets().add(getClass().getResource("main.css").toExternalForm());
+		Scene help_scene = new Scene(help, 600, 400);
+		help_scene.getStylesheets().add(getClass().getResource("main.css").toExternalForm());
 		
 		// STAGE SETTINGS
 		primaryStage.setResizable(false);
