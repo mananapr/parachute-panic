@@ -1,82 +1,587 @@
 package application;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.Timer;
 
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 
 public class Controller implements Initializable {
+	int scr = 0;
+	int lvs = 3;
+	
+	double fx1,fx2,fx3,fx4,fx5,fx6;
+	@FXML 
+	Label score ;
 	@FXML
-	ImageView player;
+	Label lives;
 	@FXML
-	ImageView playero;
+	ImageView player1;
+	@FXML
+	ImageView playero1;
+	@FXML
+	ImageView player2;
+	@FXML
+	ImageView playero2;
+	@FXML
+	ImageView player3;
+	@FXML
+	ImageView playero3;
+	@FXML
+	ImageView player4;
+	@FXML
+	ImageView playero4;
+	@FXML
+	ImageView player5;
+	@FXML
+	ImageView playero5;
+	@FXML
+	ImageView player6;
+	@FXML
+	ImageView playero6;
+	@FXML
+	ImageView boat;
+	@FXML
+	ImageView plane;
+	@FXML
+	ImageView water;
+	Timer timer1,timer2,timer3,timer4,timer5,timer6;
+	TranslateTransition boat_transition = new TranslateTransition();
 	TranslateTransition transition = new TranslateTransition();
 	TranslateTransition transition1 = new TranslateTransition();
+	TranslateTransition transition2 = new TranslateTransition();
+	TranslateTransition transition2_ = new TranslateTransition();
+	TranslateTransition transition3 = new TranslateTransition();
+	TranslateTransition transition3_ = new TranslateTransition();
+	TranslateTransition transition4 = new TranslateTransition();
+	TranslateTransition transition4_ = new TranslateTransition();
+	TranslateTransition transition5 = new TranslateTransition();
+	TranslateTransition transition5_ = new TranslateTransition();
+	TranslateTransition transition6 = new TranslateTransition();
+	TranslateTransition transition6_ = new TranslateTransition();
+	TranslateTransition transitionp = new TranslateTransition();
     private double startDragX;
-    double x = 20;
-    int flag = 0;
-	   
+    double x5 = 3;
+    double x4 = 72.5;
+    double x3 = 192;
+    double x2 = 301.5;
+    double x1 = 411;
+    double x = 520.5;
+    double y,y1,y2,y3,y4,y5;
+    int flag1 = 0;
+    int flag2 = 0;
+    int flag3=0,flag4=0,flag5=0,flag6=0;
+	
+    ArrayList<Integer> ar = new ArrayList<Integer>(Arrays.asList(7,7,7,7,7,7));
+    int a1 = 0;
+    int a2 = 0;
+    int a3 = 0;
+    int a4 = 0;
+    int a5 = 0;
+    
+public void random(int num) {
+	if(num == 3) {
+	while(a1==a3||a2==a3||a2==a1)
+    {
+        a1 = (int)Math.floor(Math.random()*6);
+        a2 = (int)Math.floor(Math.random()*6);
+        a3 = (int)Math.floor(Math.random()*6);
+    }
+	
+	 ar.set(a1, 1);
+	 ar.set(a2, 1);
+	 ar.set(a3, 1);
+	 }
+	
+	if(num == 4) {
+		while(a1==a3||a2==a3||a2==a1||a1==a4||a2==a4||a3==a4)
+	    {
+	        a1 = (int)Math.floor(Math.random()*6);
+	        a2 = (int)Math.floor(Math.random()*6);
+	        a3 = (int)Math.floor(Math.random()*6);
+	        a4 = (int)Math.floor(Math.random()*6);
+	    }
+		
+		 ar.set(a1, 1);
+		 ar.set(a2, 1);
+		 ar.set(a3, 1);
+		 ar.set(a4, 1);
+	}
+	
+	if(num == 5) {
+		while(sum(ar)!=5) {
+			ar.set((int)Math.floor(Math.random()*6), 1);
+		}
+	}
+}
+
+public int sum(ArrayList<Integer> list) {
+    int sum = 0; 
+
+    for (int i : list)
+        sum = sum + i;
+
+    return sum;
+}
 @Override
 public void initialize(URL arg0, ResourceBundle arg1) {
-	playero.setVisible(false);
-	player.setManaged(false);
-	player.setTranslateX(20);
-	 player.setOnMousePressed(e -> {
-		 playero.setTranslateX(player.getTranslateX());
-		 playero.setTranslateY(player.getTranslateY());
-		 player.setVisible(false);
+	score.setText("Score:. 0");
+	lives.setText("Lives:. 3");
+	water.setVisible(false);
+	plane.setVisible(true);
+	player1.setVisible(false);
+	player6.setVisible(false);
+	player5.setVisible(false);
+	player4.setVisible(false);
+    player3.setVisible(false);
+	player2.setVisible(false);
+	playero1.setVisible(false);
+	playero6.setVisible(false);
+	playero5.setVisible(false);
+	playero4.setVisible(false);
+	playero3.setVisible(false);
+	playero2.setVisible(false);
+
+	
+	random(3);
+
+	
+    transitionp.setDuration(Duration.seconds(24));
+    transitionp.setNode(plane);
+    transitionp.setToX(-743);
+    plane.setLayoutX(650);
+    transitionp.play();
+    
+	if(ar.get(0)==1) {
+	player1.setVisible(true);
+	player1.setManaged(false);
+	player1.setTranslateX(x);
+	player1.setTranslateY(-75);
+	 player1.setOnMousePressed(e -> {
+		 playero1.setTranslateX(player1.getTranslateX());
+		 y = player1.getTranslateY();
+		 playero1.setTranslateY(player1.getTranslateY());
+		 player1.setVisible(false);
 		 transition1.pause();
-		 playero.setVisible(true);
+		 playero1.setVisible(true);
 		 paraopen();
      });
 	 
-     
-	
 	//This code makes the player move downwards continuously 
-    transition1.setDuration(Duration.seconds(15));
-	transition1.setNode(player);
-	transition1.setToY(800);
+//	transition1.setDelay(Duration.seconds(2));
+    transition1.setDuration(Duration.seconds(32.6));
+	transition1.setNode(player1);
+	transition1.setToY(740);
 	transition1.play();
-
+	}
 	
-}
-public void paraopen() {
-	playero.setManaged(false);
-	
-	
-	 playero.setOnMousePressed(e -> {
-         startDragX = e.getSceneX();
-         flag = 1;
+	if(ar.get(1)==1) {
+		
+	player2.setVisible(true);
+	player2.setManaged(false);
+	player2.setTranslateX(x1);
+	player2.setTranslateY(-150);
+	 player2.setOnMousePressed(e -> {
+		 playero2.setTranslateX(player2.getTranslateX());
+		 y1 = player2.getTranslateY();
+		 playero2.setTranslateY(player2.getTranslateY());
+		 player2.setVisible(false);
+		 transition2.pause();
+		 playero2.setVisible(true);
+		 paraopen2();
      });
 	 
-     playero.setOnMouseDragged(e -> {
+	//This code makes the player move downwards continuously 
+//	transition2.setDelay(Duration.seconds(5));
+    transition2.setDuration(Duration.seconds(35.6));
+	transition2.setNode(player2);
+	transition2.setToY(740);
+	transition2.play();
+	}
+	
+	if(ar.get(2)==1) {
+		player3.setVisible(true);
+	
+	player3.setManaged(false);
+	player3.setTranslateX(x2);
+	player3.setTranslateY(-225);
+	player3.setOnMousePressed(e -> {
+		 playero3.setTranslateX(player3.getTranslateX());
+		 y2 = player3.getTranslateY();
+		 playero3.setTranslateY(player3.getTranslateY());
+		 player3.setVisible(false);
+		 transition3.pause();
+		 playero3.setVisible(true);
+		 paraopen3();
+     });
+	 
+	//This code makes the player move downwards continuously 
+//	transition3.setDelay(Duration.seconds(8));
+	transition3.setDuration(Duration.seconds(38.6));
+	transition3.setNode(player3);
+	transition3.setToY(740);
+	transition3.play();
+	}
+	
+	if(ar.get(3)==1) {
+		player4.setVisible(true);
+
+	player4.setManaged(false);
+	player4.setTranslateX(x3);
+	player4.setTranslateY(-300);
+	player4.setOnMousePressed(e -> {
+		 playero4.setTranslateX(player4.getTranslateX());
+		 y3 = player4.getTranslateY();
+		 playero4.setTranslateY(player4.getTranslateY());
+		 player4.setVisible(false);
+		 transition4.pause();
+		 playero4.setVisible(true);
+		 paraopen4();
+     });
+	 
+	//This code makes the player move downwards continuously 
+	//transition4.setDelay(Duration.seconds(11));
+	transition4.setDuration(Duration.seconds(41.6));
+	transition4.setNode(player4);
+	transition4.setToY(740);
+	transition4.play();
+	}
+	
+	if(ar.get(4)==1) {
+		player5.setVisible(true);
+
+	player5.setManaged(false);
+	player5.setTranslateX(x4);
+	player5.setTranslateY(-375);
+	player5.setOnMousePressed(e -> {
+		 playero5.setTranslateX(player5.getTranslateX());
+		 y4 = player5.getTranslateY();
+		 playero5.setTranslateY(player5.getTranslateY());
+		 player5.setVisible(false);
+		 transition5.pause();
+		 playero5.setVisible(true);
+		 paraopen5();
+		 
+     });
+	 
+	//This code makes the player move downwards continuously 
+//	transition5.setDelay(Duration.seconds(14));
+	transition5.setDuration(Duration.seconds(44.6));
+	transition5.setNode(player5);
+	transition5.setToY(740);
+	transition5.play();
+	}
+	
+	if(ar.get(5)==1) {
+		player6.setVisible(true);
+	
+	player6.setManaged(false);
+	player6.setTranslateX(x5);
+	player6.setTranslateY(-450);
+	player6.setOnMousePressed(e -> {
+		 playero6.setTranslateX(player6.getTranslateX());
+		 y5 = player6.getTranslateY();
+		 playero6.setTranslateY(player6.getTranslateY());
+		 player6.setVisible(false);
+		 transition6.pause();
+		 playero6.setVisible(true);
+		 paraopen6();
+     });
+	 
+	//This code makes the player move downwards continuously 
+
+	transition6.setDuration(Duration.seconds(47.6));
+	transition6.setNode(player6);
+	transition6.setToY(740);
+	transition6.play();
+	}
+	 
+}
+public void paraopen() {
+	playero1.setManaged(false);
+	
+	
+	 playero1.setOnMousePressed(e -> {
+         startDragX = e.getSceneX();
+         flag1 = 1;
+     });
+	 
+     playero1.setOnMouseDragged(e -> {
     	
-    	 if(flag ==1) {
+    	 if(flag1 ==1) {
     	 double X = e.getSceneX();
     	  if(X - startDragX > 0) {
     		  x = x + 10;
-    		  playero.setTranslateX(x);
-    		  flag = 0;
+    		  playero1.setTranslateX(x);
+    		  fx1 = x;
+    		  flag1 = 0;
     	  }
     	 else if (X - startDragX  < 0) {
     		  x = x - 10;
-    		  playero.setTranslateX(x);
-    		  flag = 0;
+    		  fx1 = x;
+    		  playero1.setTranslateX(x);
+    		  flag1 = 0;
     	 }
     	 }
      });
 	
 	//This code makes the player move downwards continuously 
     transition.setDuration(Duration.seconds(19));
-	transition.setNode(playero);
-	transition.setToY(800);
+	transition.setNode(playero1);
+	transition.setToY(700);
 	transition.play();
+	transition.setOnFinished((e) ->{
+		if(fx1<=325 && fx1>=175) {
+			++scr;
+			score.setText("Score:. "+scr);
+		}
+		else
+		{
+			--lvs;
+			lives.setText("Lives:. "+lvs);
+		}
+	});
 }
 	
+public void paraopen2() {
+	playero2.setManaged(false);
+	
+	
+	 playero2.setOnMousePressed(e -> {
+         startDragX = e.getSceneX();
+         flag2 = 1;
+     });
+	 
+     playero2.setOnMouseDragged(e -> {
+    	
+    	 if(flag2 ==1) {
+    	 double X = e.getSceneX();
+    	  if(X - startDragX > 0) {
+    		  x1 = x1 + 10;
+    		  fx2 = x1;
+    		  playero2.setTranslateX(x1);
+    		  flag2 = 0;
+    	  }
+    	 else if (X - startDragX  < 0) {
+    		  x1 = x1 - 10;
+    		  fx2 = x1;
+    		  playero2.setTranslateX(x1);
+    		  flag2 = 0;
+    	 }
+    	 }
+     });
+	
+	//This code makes the player move downwards continuously 
+    double r = ((700-y1)*19)/(700-y);
+    transition2_.setDuration(Duration.seconds(r));
+	transition2_.setNode(playero2);
+	transition2_.setToY(700);
+	transition2_.play();
+	transition2_.setOnFinished((e) ->{
+		if(fx2<=325 && fx2>=175) {
+			++scr;
+			score.setText("Score:. "+scr);
+		}
+		else
+		{
+			--lvs;
+			lives.setText("Lives:. "+lvs);
+		}
+	});
+}
+
+public void paraopen3() {
+	playero3.setManaged(false);
+	
+	
+	 playero3.setOnMousePressed(e -> {
+         startDragX = e.getSceneX();
+         flag3 = 1;
+     });
+	 
+     playero3.setOnMouseDragged(e -> {
+    	
+    	 if(flag3 ==1) {
+    	 double X = e.getSceneX();
+    	  if(X - startDragX > 0) {
+    		  x2 = x2 + 10;
+    		  fx3 = x2;
+    		  playero3.setTranslateX(x2);
+    		  flag3 = 0;
+    	  }
+    	 else if (X - startDragX  < 0) {
+    		  x2 = x2 - 10;
+    		  fx3 = x2;
+    		  playero3.setTranslateX(x2);
+    		  flag3 = 0;
+    	 }
+    	 }
+     });
+	
+	//This code makes the player move downwards continuously 
+     double r = ((700-y2)*19)/(700-y);
+    transition3_.setDuration(Duration.seconds(r));
+	transition3_.setNode(playero3);
+	transition3_.setToY(700);
+	transition3_.play();
+	transition3_.setOnFinished((e) ->{
+		if(fx3<=325 && fx3>=175) {
+			++scr;
+			score.setText("Score:. "+scr);
+		}
+		else
+		{
+			--lvs;
+			lives.setText("Lives:. "+lvs);
+		}
+	});
+}
+
+public void paraopen4() {
+	playero4.setManaged(false);
+	 playero4.setOnMousePressed(e -> {
+         startDragX = e.getSceneX();
+         flag4 = 1;
+     });
+	 
+     playero4.setOnMouseDragged(e -> {
+    	
+    	 if(flag4 ==1) {
+    	 double X = e.getSceneX();
+    	  if(X - startDragX > 0) {
+    		  x3 = x3 + 10;
+    		  fx4 = x3;
+    		  playero4.setTranslateX(x3);
+    		  flag4 = 0;
+    	  }
+    	 else if (X - startDragX  < 0) {
+    		  x3 = x3 - 10;
+    		  fx4 = x3;
+    		  playero4.setTranslateX(x3);
+    		  flag4 = 0;
+    	 }
+    	 }
+     });
+	
+	//This code makes the player move downwards continuously 
+     double r = ((700-y3)*19)/(700-y);
+    transition4_.setDuration(Duration.seconds(r));
+	transition4_.setNode(playero4);
+	transition4_.setToY(700);
+	transition4_.play();
+	transition4_.setOnFinished((e) ->{
+		if(fx4<=320 && fx4>=175) {
+			++scr;
+			score.setText("Score:. "+scr);
+		}
+		else
+		{
+			--lvs;
+			lives.setText("Lives:. "+lvs);
+		}
+	});
+}
+
+public void paraopen5() {
+	playero5.setManaged(false);
+	
+	
+	 playero5.setOnMousePressed(e -> {
+         startDragX = e.getSceneX();
+         flag5 = 1;
+     });
+	 
+     playero5.setOnMouseDragged(e -> {
+    	
+    	 if(flag5 ==1) {
+    	 double X = e.getSceneX();
+    	  if(X - startDragX > 0) {
+    		  x4 = x4 + 10;
+    		  fx5 = x4;
+    		  playero5.setTranslateX(x4);
+    		  flag5 = 0;
+    	  }
+    	 else if (X - startDragX  < 0) {
+    		  x4 = x4 - 10;
+    		  fx5 = x4;
+    		  playero5.setTranslateX(x4);
+    		  flag5 = 0;
+    	 }
+    	 }
+     });
+	
+	//This code makes the player move downwards continuously 
+     double r = ((700-y4)*19)/(700-y);
+    transition5_.setDuration(Duration.seconds(r));
+	transition5_.setNode(playero5);
+	transition5_.setToY(700);
+	transition5_.play();
+	transition5_.setOnFinished((e) ->{
+		if(fx5<=325 && fx5>=175) {
+			++scr;
+			score.setText("Score:. "+scr);
+		}
+		else
+		{
+			--lvs;
+			lives.setText("Lives:. "+lvs);
+		}
+	});
+}
+
+public void paraopen6() {
+	playero6.setManaged(false);
+	
+	
+	 playero6.setOnMousePressed(e -> {
+         startDragX = e.getSceneX();
+         flag6 = 1;
+     });
+	 
+     playero6.setOnMouseDragged(e -> {
+    	
+    	 if(flag6 ==1) {
+    	 double X = e.getSceneX();
+    	  if(X - startDragX > 0) {
+    		  x5 = x5 + 10;
+    		  fx6 = x5;
+    		  playero6.setTranslateX(x5);
+    		  flag6 = 0;
+    	  }
+    	 else if (X - startDragX  < 0) {
+    		  x5 = x5 - 10;
+    		  fx6 = x5;
+    		  playero6.setTranslateX(x5);
+    		  flag6 = 0;
+    	 }
+    	 }
+     });
+	
+	//This code makes the player move downwards continuously
+     double r = ((700-y5)*19)/(700-y);
+    transition6_.setDuration(Duration.seconds(r));
+	transition6_.setNode(playero6);
+	transition6_.setToY(700);
+	transition6_.play();
+	transition6_.setOnFinished((e) ->{
+		if(fx6<=325 && fx6>=175) {
+			++scr;
+			score.setText("Score:. "+scr);
+		}
+		else
+		{
+			--lvs;
+			lives.setText("Lives:. "+lvs);
+		}
+	});
+}
 
 }
