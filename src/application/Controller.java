@@ -1,6 +1,13 @@
 package application;
 
 import java.net.URL;
+import java.nio.file.Paths;
+import java.io.*;
+
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
@@ -68,6 +75,8 @@ public class Controller implements Initializable {
 	TranslateTransition transition6 = new TranslateTransition();
 	TranslateTransition transition6_ = new TranslateTransition();
 	TranslateTransition transitionp = new TranslateTransition();
+	TranslateTransition transitionboat11 = new TranslateTransition();
+	TranslateTransition transitionboat12 = new TranslateTransition();
     private double startDragX;
     double x5 = 3;
     double x4 = 72.5;
@@ -135,7 +144,7 @@ public int sum(ArrayList<Integer> list) {
 public void initialize(URL arg0, ResourceBundle arg1) {
 	score.setText("Score: 0");
 	lives.setText("Lives: 3");
-	water.setVisible(false);
+	water.setVisible(true);
 	plane.setVisible(true);
 	player1.setVisible(false);
 	player6.setVisible(false);
@@ -153,6 +162,17 @@ public void initialize(URL arg0, ResourceBundle arg1) {
 	
 	random(3);
 
+	transitionboat11.setDuration(Duration.seconds(5));
+	transitionboat11.setNode(boat);
+	transitionboat11.setToX(250);
+	transitionboat11.play();
+	
+	transitionboat12.setDelay(Duration.seconds(45));
+	transitionboat12.setNode(boat);
+	transitionboat12.setDuration(Duration.seconds(5));
+	transitionboat12.setFromX(250);
+	transitionboat12.setToX(620);
+	transitionboat12.play();
 	
     transitionp.setDuration(Duration.seconds(24));
     transitionp.setNode(plane);
@@ -342,11 +362,18 @@ public void paraopen() {
 		if(fx1<=325 && fx1>=175) {
 			++scr;
 			score.setText("Score: "+scr);
+			URL resource = getClass().getResource("/home/manan/Programs/parachutepanic/win.wav");
+			Media pick = new Media(resource.toString());
+			MediaPlayer player1 = new MediaPlayer(pick);
+			player1.play();
 		}
 		else
 		{
 			--lvs;
 			lives.setText("Lives: "+lvs);
+			Media pick = new Media(Paths.get("splash.wav").toUri().toString());
+			MediaPlayer player = new MediaPlayer(pick);
+			player.play();
 		}
 	});
 }
@@ -389,11 +416,17 @@ public void paraopen2() {
 		if(fx2<=325 && fx2>=175) {
 			++scr;
 			score.setText("Score: "+scr);
+			Media pick = new Media(Paths.get("win.mp3").toUri().toString());
+			MediaPlayer player1 = new MediaPlayer(pick);
+			player1.play();
 		}
 		else
 		{
 			--lvs;
 			lives.setText("Lives: "+lvs);
+			Media pick = new Media(Paths.get("splash.wav").toUri().toString());
+			MediaPlayer player = new MediaPlayer(pick);
+			player.play();
 		}
 	});
 }
@@ -436,11 +469,17 @@ public void paraopen3() {
 		if(fx3<=325 && fx3>=175) {
 			++scr;
 			score.setText("Score:. "+scr);
+			Media pick = new Media(Paths.get("win.mp3").toUri().toString());
+			MediaPlayer player1 = new MediaPlayer(pick);
+			player1.play();
 		}
 		else
 		{
 			--lvs;
 			lives.setText("Lives:. "+lvs);
+			Media pick = new Media(Paths.get("splash.wav").toUri().toString());
+			MediaPlayer player = new MediaPlayer(pick);
+			player.play();
 		}
 	});
 }
@@ -480,12 +519,18 @@ public void paraopen4() {
 	transition4_.setOnFinished((e) ->{
 		if(fx4<=320 && fx4>=175) {
 			++scr;
-			score.setText("Score:. "+scr);
+			score.setText("Score: "+scr);
+			Media pick = new Media(Paths.get("win.mp3").toUri().toString());
+			MediaPlayer player = new MediaPlayer(pick);
+			player.play();
 		}
 		else
 		{
 			--lvs;
-			lives.setText("Lives:. "+lvs);
+			lives.setText("Lives: "+lvs);
+			Media pick = new Media(Paths.get("splash.wav").toUri().toString());
+			MediaPlayer player = new MediaPlayer(pick);
+			player.play();
 		}
 	});
 }
@@ -527,12 +572,18 @@ public void paraopen5() {
 	transition5_.setOnFinished((e) ->{
 		if(fx5<=325 && fx5>=175) {
 			++scr;
-			score.setText("Score:. "+scr);
+			score.setText("Score: "+scr);
+			Media pick = new Media(Paths.get("win.mp3").toUri().toString());
+			MediaPlayer player = new MediaPlayer(pick);
+			player.play();
 		}
 		else
 		{
 			--lvs;
-			lives.setText("Lives:. "+lvs);
+			lives.setText("Lives: "+lvs);
+			Media pick = new Media(Paths.get("splash.wav").toUri().toString());
+			MediaPlayer player = new MediaPlayer(pick);
+			player.play();
 		}
 	});
 }
@@ -575,11 +626,17 @@ public void paraopen6() {
 		if(fx6<=325 && fx6>=175) {
 			++scr;
 			score.setText("Score:. "+scr);
+			Media pick = new Media(Paths.get("win.mp3").toUri().toString());
+			MediaPlayer player = new MediaPlayer(pick);
+			player.play();
 		}
 		else
 		{
 			--lvs;
 			lives.setText("Lives:. "+lvs);
+			Media pick = new Media(Paths.get("splash.wav").toUri().toString());
+			MediaPlayer player = new MediaPlayer(pick);
+			player.play();
 		}
 	});
 }

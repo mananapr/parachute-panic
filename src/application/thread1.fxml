@@ -108,12 +108,17 @@
             <Image url="@cloud.png" />
          </image>
       </ImageView>
-       <ImageView fx:id="boat" fitHeight="160" fitWidth="160" layoutX="250" layoutY="650" pickOnBounds="true" preserveRatio="true">
+       <ImageView fx:id="boat" fitHeight="160" fitWidth="160" layoutX="0.0" layoutY="579.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@boat.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="water" fitHeight="95" fitWidth="400" layoutX="100.0" layoutY="680.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="water1" fitHeight="95.0" fitWidth="400.0" layoutX="386.0" layoutY="680.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@water.gif" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="water" fitHeight="95.0" fitWidth="400.0" layoutX="-10.0" layoutY="683.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@water.gif" />
          </image>
@@ -145,7 +150,6 @@
       <Label fx:id="score" layoutX="579.0" layoutY="6.0" text="Label">
          <font>
             <Font name="AR DARLING" size="18.0" />
-         </font></Label> 
-      
+         </font></Label>
    </children>
 </AnchorPane>
