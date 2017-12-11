@@ -4,9 +4,15 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+<AnchorPane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.162-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
+      <ImageView fx:id="background" fitHeight="1094.0" fitWidth="731.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@background.png" />
+         </image>
+      </ImageView>
       <ImageView fx:id="player1" fitHeight="42.0" fitWidth="98.0" layoutX="47.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@freefall.png" />
@@ -67,6 +73,41 @@
             <Image url="@freefallp.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="cloud1" fitHeight="59.0" fitWidth="118.0" layoutX="-7.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@cloud.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cloud3" fitHeight="59.0" fitWidth="118.0" layoutX="150.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@cloud.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cloud4" fitHeight="59.0" fitWidth="118.0" layoutX="250.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@cloud.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cloud6" fitHeight="59.0" fitWidth="118.0" layoutX="340.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@cloud.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cloud7" fitHeight="59.0" fitWidth="118.0" layoutX="440.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@cloud.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cloud8" fitHeight="59.0" fitWidth="118.0" layoutX="540.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@cloud.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cloud9" fitHeight="59.0" fitWidth="118.0" layoutX="640.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@cloud.png" />
+         </image>
+      </ImageView>
        <ImageView fx:id="boat" fitHeight="160" fitWidth="160" layoutX="250" layoutY="650" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@boat.png" />
@@ -77,13 +118,34 @@
             <Image url="@water.gif" />
          </image>
       </ImageView> 
-      <ImageView fx:id="plane" fitHeight="95" fitWidth="95" layoutX="650.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="plane" fitHeight="95" fitWidth="95" layoutX="650.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@airplane.png" />
          </image>
       </ImageView>
-      <Label fx:id="lives" layoutY="6.0" text="Label" />
-      <Label fx:id="score" layoutX="590.0" layoutY="6.0" text="Label" /> 
+      <ImageView fx:id="cloud2" fitHeight="59.0" fitWidth="118.0" layoutX="60.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@cloud.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cloud5" fitHeight="59.0" fitWidth="118.0" layoutX="190.0" layoutY="-17.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@cloud.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cloud10" fitHeight="59.0" fitWidth="118.0" layoutX="590.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@cloud.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lives" layoutX="14.0" layoutY="6.0" text="Label">
+         <font>
+            <Font name="AR DARLING" size="18.0" />
+         </font></Label>
+      <Label fx:id="score" layoutX="579.0" layoutY="6.0" text="Label">
+         <font>
+            <Font name="AR DARLING" size="18.0" />
+         </font></Label> 
       
    </children>
 </AnchorPane>

@@ -133,8 +133,8 @@ public int sum(ArrayList<Integer> list) {
 }
 @Override
 public void initialize(URL arg0, ResourceBundle arg1) {
-	score.setText("Score:. 0");
-	lives.setText("Lives:. 3");
+	score.setText("Score: 0");
+	lives.setText("Lives: 3");
 	water.setVisible(false);
 	plane.setVisible(true);
 	player1.setVisible(false);
@@ -319,13 +319,13 @@ public void paraopen() {
     	 if(flag1 ==1) {
     	 double X = e.getSceneX();
     	  if(X - startDragX > 0) {
-    		  x = x + 10;
+    		  x = x + 20;
     		  playero1.setTranslateX(x);
     		  fx1 = x;
     		  flag1 = 0;
     	  }
     	 else if (X - startDragX  < 0) {
-    		  x = x - 10;
+    		  x = x - 20;
     		  fx1 = x;
     		  playero1.setTranslateX(x);
     		  flag1 = 0;
@@ -341,12 +341,12 @@ public void paraopen() {
 	transition.setOnFinished((e) ->{
 		if(fx1<=325 && fx1>=175) {
 			++scr;
-			score.setText("Score:. "+scr);
+			score.setText("Score: "+scr);
 		}
 		else
 		{
 			--lvs;
-			lives.setText("Lives:. "+lvs);
+			lives.setText("Lives: "+lvs);
 		}
 	});
 }
@@ -365,13 +365,13 @@ public void paraopen2() {
     	 if(flag2 ==1) {
     	 double X = e.getSceneX();
     	  if(X - startDragX > 0) {
-    		  x1 = x1 + 10;
+    		  x1 = x1 + 20;
     		  fx2 = x1;
     		  playero2.setTranslateX(x1);
     		  flag2 = 0;
     	  }
     	 else if (X - startDragX  < 0) {
-    		  x1 = x1 - 10;
+    		  x1 = x1 - 20;
     		  fx2 = x1;
     		  playero2.setTranslateX(x1);
     		  flag2 = 0;
@@ -388,12 +388,12 @@ public void paraopen2() {
 	transition2_.setOnFinished((e) ->{
 		if(fx2<=325 && fx2>=175) {
 			++scr;
-			score.setText("Score:. "+scr);
+			score.setText("Score: "+scr);
 		}
 		else
 		{
 			--lvs;
-			lives.setText("Lives:. "+lvs);
+			lives.setText("Lives: "+lvs);
 		}
 	});
 }
@@ -412,13 +412,13 @@ public void paraopen3() {
     	 if(flag3 ==1) {
     	 double X = e.getSceneX();
     	  if(X - startDragX > 0) {
-    		  x2 = x2 + 10;
+    		  x2 = x2 + 20;
     		  fx3 = x2;
     		  playero3.setTranslateX(x2);
     		  flag3 = 0;
     	  }
     	 else if (X - startDragX  < 0) {
-    		  x2 = x2 - 10;
+    		  x2 = x2 - 20;
     		  fx3 = x2;
     		  playero3.setTranslateX(x2);
     		  flag3 = 0;
@@ -457,13 +457,13 @@ public void paraopen4() {
     	 if(flag4 ==1) {
     	 double X = e.getSceneX();
     	  if(X - startDragX > 0) {
-    		  x3 = x3 + 10;
+    		  x3 = x3 + 20;
     		  fx4 = x3;
     		  playero4.setTranslateX(x3);
     		  flag4 = 0;
     	  }
     	 else if (X - startDragX  < 0) {
-    		  x3 = x3 - 10;
+    		  x3 = x3 - 20;
     		  fx4 = x3;
     		  playero4.setTranslateX(x3);
     		  flag4 = 0;
@@ -504,13 +504,13 @@ public void paraopen5() {
     	 if(flag5 ==1) {
     	 double X = e.getSceneX();
     	  if(X - startDragX > 0) {
-    		  x4 = x4 + 10;
+    		  x4 = x4 + 20;
     		  fx5 = x4;
     		  playero5.setTranslateX(x4);
     		  flag5 = 0;
     	  }
     	 else if (X - startDragX  < 0) {
-    		  x4 = x4 - 10;
+    		  x4 = x4 - 20;
     		  fx5 = x4;
     		  playero5.setTranslateX(x4);
     		  flag5 = 0;
@@ -551,13 +551,13 @@ public void paraopen6() {
     	 if(flag6 ==1) {
     	 double X = e.getSceneX();
     	  if(X - startDragX > 0) {
-    		  x5 = x5 + 10;
+    		  x5 = x5 + 20;
     		  fx6 = x5;
     		  playero6.setTranslateX(x5);
     		  flag6 = 0;
     	  }
     	 else if (X - startDragX  < 0) {
-    		  x5 = x5 - 10;
+    		  x5 = x5 - 20;
     		  fx6 = x5;
     		  playero6.setTranslateX(x5);
     		  flag6 = 0;

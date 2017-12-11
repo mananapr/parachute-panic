@@ -15,8 +15,8 @@ public static void main(String args[]) {
 public void start(Stage stage) throws Exception {
 	FXMLLoader loader = new FXMLLoader (getClass().getResource("thread1.fxml"));
 	AnchorPane root = loader.load();
-	stage.setScene(new Scene(root,800,600));
-	stage.show();
-	
+	Scene scene = new Scene(root,800,600);
+	stage.setScene(scene);
+	stage.show();	
 }
 }
