@@ -13,7 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 
-public class Controller extends highscore_lives implements Initializable {
+public class Controller2 extends highscore_lives implements Initializable {
 	
 	
 	double fx1,fx2,fx3,fx4,fx5,fx6;
@@ -48,8 +48,8 @@ public class Controller extends highscore_lives implements Initializable {
 	ImageView boat;
 	@FXML
 	ImageView plane;
-/*	@FXML
-	ImageView water;*/
+	@FXML
+	ImageView boat1;
 	
 	TranslateTransition boat_transition = new TranslateTransition();
 	TranslateTransition transition = new TranslateTransition();
@@ -67,6 +67,8 @@ public class Controller extends highscore_lives implements Initializable {
 	TranslateTransition transitionp = new TranslateTransition();
 	TranslateTransition transitionboat11 = new TranslateTransition();
 	TranslateTransition transitionboat12 = new TranslateTransition();
+	TranslateTransition transitionboat21 = new TranslateTransition();
+	TranslateTransition transitionboat22 = new TranslateTransition();
     private double startDragX;
     double x5 = 3;
     double x4 = 72.5;
@@ -148,21 +150,35 @@ public void initialize(URL arg0, ResourceBundle arg1) {
 	playero4.setVisible(false);
 	playero3.setVisible(false);
 	playero2.setVisible(false);
+	boat1.setVisible(false);
+	
+	random(4);
 
 	
-	random(3);
-
 	transitionboat11.setDuration(Duration.seconds(5));
 	transitionboat11.setNode(boat);
-	transitionboat11.setToX(250);
+	transitionboat11.setToX(20);
 	transitionboat11.play();
 	
 	transitionboat12.setDelay(Duration.seconds(45));
 	transitionboat12.setNode(boat);
 	transitionboat12.setDuration(Duration.seconds(5));
-	transitionboat12.setFromX(250);
+	transitionboat12.setFromX(20);
 	transitionboat12.setToX(680);
 	transitionboat12.play();
+	
+	boat1.setVisible(true);
+	transitionboat21.setDuration(Duration.seconds(5));
+	transitionboat21.setNode(boat1);
+	transitionboat21.setToX(500);
+	transitionboat21.play();
+	
+	transitionboat22.setDelay(Duration.seconds(45));
+	transitionboat22.setNode(boat1);
+	transitionboat22.setDuration(Duration.seconds(5));
+	transitionboat22.setFromX(500);
+	transitionboat22.setToX(680);
+	transitionboat22.play();
 /*	transitionboat12.setOnFinished((e)->{
 		FXMLLoader loader = new FXMLLoader (getClass().getResource("thread2.fxml"));
 		Parent root = null;

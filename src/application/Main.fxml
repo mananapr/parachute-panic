@@ -1,31 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane id="mainpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.162-ea" xmlns:fx="http://javafx.com/fxml/1">
+<Pane id="mainpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.mainController">
    <children>
       <ImageView id="menubg" fitHeight="1193.0" fitWidth="763.0" layoutY="-231.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@background.png" />
          </image>
       </ImageView>
-      <Button id="play" fx:id="play" layoutX="265.0" layoutY="322.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="111.0" text="Play Game" textAlignment="CENTER" />
-      <Button id="help" layoutX="241.0" layoutY="483.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="58.0" text="Help" textAlignment="CENTER" />
-      <Button id="exit" layoutX="349.0" layoutY="483.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="58.0" text="Exit" textAlignment="CENTER" />
+      <Button fx:id="play" layoutX="265.0" layoutY="322.0" mnemonicParsing="false" onAction="#func" prefHeight="40.0" prefWidth="111.0" text="Play Game" textAlignment="CENTER" />
+      <Button fx:id="exit" layoutX="292.0" layoutY="484.0" mnemonicParsing="false" onAction="#func1" prefHeight="26.0" prefWidth="58.0" text="Exit" textAlignment="CENTER" />
       <Text id="title" layoutX="177.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PARACHUTE PANIC" textAlignment="CENTER">
          <font>
             <Font name="AR DARLING" size="31.0" />
          </font>
       </Text>
-      <Text id="highscore" layoutX="254.0" layoutY="433.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HIGHSCORE: 40">
-         <font>
-            <Font name="AR DARLING" size="17.0" />
-         </font>
-      </Text>
+      <Label fx:id="highscore" layoutX="289.0" layoutY="400.0" prefHeight="40.0" prefWidth="149.0" text="High Score" />
    </children>
 </Pane>

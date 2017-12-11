@@ -25,8 +25,8 @@
     -fx-text-fill: black;
 }
 
-#title,
-#highscore {
+#title
+{
     -fx-fill: linear-gradient(#802b00, #ffaa80);
 }
 #title:hover{

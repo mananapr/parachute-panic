@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.162-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+<AnchorPane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller2">
    <children>
       <ImageView fx:id="background" fitHeight="1094.0" fitWidth="731.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -113,6 +113,11 @@
             <Image url="@boat.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="boat1" fitHeight="160" fitWidth="160" layoutX="0.0" layoutY="665.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@boat.png" />
+         </image>
+      </ImageView>
       <ImageView fx:id="water1" fitHeight="95.0" fitWidth="400.0" layoutX="386.0" layoutY="680.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@water.gif" />
@@ -143,7 +148,7 @@
             <Image url="@cloud.png" />
          </image>
       </ImageView>
-     
+    
       <Label fx:id="score" layoutX="573.0" layoutY="6.0" text="Label">
          <font>
             <Font name="AR DARLING" size="18.0" />
