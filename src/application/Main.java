@@ -16,6 +16,8 @@ public class Main extends Application{
 		window = primaryStage;
 		
 		// FXMLs
+//		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
+//		Parent root = loader.load();
 		Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
 		Parent help = FXMLLoader.load(getClass().getResource("Help.fxml"));
 		
