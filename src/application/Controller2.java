@@ -429,7 +429,7 @@ public void paraopen() {
 	transition.setToY(700);
 	transition.play();
 	transition.setOnFinished((e) ->{
-		if(fx1<=325 && fx1>=175) {
+		if((fx1<=100 && fx1>=10)||(fx1<=670 && fx1>=420)) {
 			++scr;
 			score.setText("Score: "+scr);
 //			URL resource = getClass().getResource("/home/manan/Programs/parachutepanic/win.wav");
@@ -476,7 +476,7 @@ public void paraopen2() {
 	transition2_.setToY(700);
 	transition2_.play();
 	transition2_.setOnFinished((e) ->{
-		if(fx2<=325 && fx2>=175) {
+		if((fx2<=100 && fx2>=10)||(fx2<=670 && fx2>=420)) {
 			++scr;
 			score.setText("Score: "+scr);
 		//	Media pick = new Media(Paths.get("win.mp3").toUri().toString());
@@ -522,7 +522,7 @@ public void paraopen3() {
 	transition3_.setToY(700);
 	transition3_.play();
 	transition3_.setOnFinished((e) ->{
-		if(fx3<=325 && fx3>=175) {
+		if((fx3<=100 && fx3>=10)||(fx3<=670 && fx3>=420)) {
 			++scr;
 	//		score.setText("Score:. "+scr);
 	//		Media pick = new Media(Paths.get("win.mp3").toUri().toString());
@@ -566,7 +566,7 @@ public void paraopen4() {
 	transition4_.setToY(700);
 	transition4_.play();
 	transition4_.setOnFinished((e) ->{
-		if(fx4<=320 && fx4>=175) {
+		if((fx4<=100 && fx4>=10)||(fx4<=670 && fx4>=420)) {
 			++scr;
 			score.setText("Score: "+scr);
 		//	Media pick = new Media(Paths.get("win.mp3").toUri().toString());
@@ -612,7 +612,7 @@ public void paraopen5() {
 	transition5_.setToY(700);
 	transition5_.play();
 	transition5_.setOnFinished((e) ->{
-		if(fx5<=325 && fx5>=175) {
+		if((fx5<=100 && fx5>=10)||(fx5<=670 && fx5>=420)) {
 			++scr;
 			score.setText("Score: "+scr);
 		//	Media pick = new Media(Paths.get("win.mp3").toUri().toString());
@@ -658,7 +658,7 @@ public void paraopen6() {
 	transition6_.setToY(760);
 	transition6_.play();
 	transition6_.setOnFinished((e) ->{
-		if(fx6<=325 && fx6>=175) {
+		if((fx6<=100 && fx6>=10)||(fx6<=670 && fx6>=420)) {
 			++scr;
 			score.setText("Score:. "+scr);
 		//	Media pick = new Media(Paths.get("win.mp3").toUri().toString());

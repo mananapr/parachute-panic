@@ -1,21 +1,34 @@
 package application;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class mainController   {
+public class mainController  implements Initializable {
+	highscore_lives h = new highscore_lives();
 	@FXML 
 	Button play;
 	int flag;
+	@FXML
+	Label highscore;
 public void func1(ActionEvent e) throws Exception {
 	System.exit(0);
 }
@@ -53,7 +66,14 @@ public void func(ActionEvent event) throws Exception {
 		}
 		Scene s4 = new Scene(root1,800,600);
 		if(highscore_lives.scr<1)
+		{
 			s4.getStylesheets().add(getClass().getResource("main.css").toExternalForm());
+		/*	if(highscore_lives.scr > highscore_lives.hiscr)
+			{
+				highscore_lives.hiscr = highscore_lives.scr;
+				writer();
+			}*/
+		}
 		s3.setScene(s4);
 		
 	   s3.show();
@@ -64,6 +84,11 @@ public void func(ActionEvent event) throws Exception {
 		   pause1 = new PauseTransition(Duration.seconds(100));
 			pause1.setOnFinished((e) ->{
 			   s3.hide();
+			   if(highscore_lives.scr > h.hiscr)
+				{
+					h.hiscr = highscore_lives.scr;
+					writer();
+				}
 			   FXMLLoader loader3 = new FXMLLoader (getClass().getResource("Main.fxml"));
 			   Parent root1 = null;
 				try {
@@ -75,6 +100,7 @@ public void func(ActionEvent event) throws Exception {
 				}
 				Scene s4 = new Scene(root1,800,600);
 				s4.getStylesheets().add(getClass().getResource("main.css").toExternalForm());
+				
 				s3.setScene(s4);
 				s3.show();
 				
@@ -85,6 +111,49 @@ public void func(ActionEvent event) throws Exception {
 		
 		pause1.play();
 	}
+}
+
+public  void writer(){
+	try{
+		ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("/home/kush/Documents/codes/pp/src/application/h.txt"));
+		os.writeObject(h);
+		os.close();				
+	}
+	catch(FileNotFoundException e){
+		e.printStackTrace();
+	}
+		catch(IOException e){
+		e.printStackTrace();
+	}
+}
+
+@Override
+public void initialize(URL arg0, ResourceBundle arg1) {
+	reader();
+	highscore.setText("High Score:. "+h.hiscr);
+	
+}
+
+public  void reader(){
+	File file2 = new File("/home/kush/Documents/codes/pp/src/application/h.txt");
+	 if(file2.exists()){
+  		
+  			try{
+  			ObjectInputStream is = new ObjectInputStream(new FileInputStream("/home/kush/Documents/codes/pp/src/application/h.txt"));
+  		h = (highscore_lives) is.readObject();
+  			
+  			   }
+  				catch(FileNotFoundException e){
+				e.printStackTrace();
+			}
+				catch(IOException e){
+				e.printStackTrace();
+			}
+				catch(ClassNotFoundException e){
+				e.printStackTrace();
+			}	
+  		}
+
 }
 }
 
