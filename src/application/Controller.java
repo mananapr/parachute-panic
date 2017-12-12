@@ -19,7 +19,8 @@ public class Controller extends highscore_lives implements Initializable {
 	double fx1,fx2,fx3,fx4,fx5,fx6;
 	@FXML 
 	Label score ;
-	
+	@FXML
+	Label lives;
 	@FXML
 	ImageView player1;
 	@FXML
@@ -132,8 +133,10 @@ public int sum(ArrayList<Integer> list) {
 }
 @Override
 public void initialize(URL arg0, ResourceBundle arg1) {
-	score.setText("Score: "+scr);
-	
+	score.setText("Score: 0");
+	lives.setText("Lives: 3");
+	scr = 0;
+	lvs = 3;
 	//water.setVisible(true);
 	plane.setVisible(true);
 	player1.setVisible(false);
@@ -208,13 +211,14 @@ public void initialize(URL arg0, ResourceBundle arg1) {
 	transition1.setNode(player1);
 	transition1.setToY(740);
 	transition1.play();
-/*	transition1.setOnFinished((e)->{
+	transition1.setOnFinished((e)->{
+	//	System.out.println(player1.getTranslateY());
 		if(player1.getTranslateY()>730) {
 			--lvs;
 			lives.setText("Lives: "+lvs);
 		}
 			
-	});*/
+	});
 	}
 	
 	if(ar.get(1)==1) {
@@ -240,13 +244,14 @@ public void initialize(URL arg0, ResourceBundle arg1) {
 	transition2.setNode(player2);
 	transition2.setToY(740);
 	transition2.play();
-/*	transition2.setOnFinished((e)->{
+	transition2.setOnFinished((e)->{
+	//	System.out.println(player2.getTranslateY());
 		if(player2.getTranslateY()>730) {
 			--lvs;
 			lives.setText("Lives: "+lvs);
 		}
 			
-	});*/
+	});
 	}
 	
 	if(ar.get(2)==1) {
@@ -272,13 +277,14 @@ public void initialize(URL arg0, ResourceBundle arg1) {
 	transition3.setNode(player3);
 	transition3.setToY(740);
 	transition3.play();
-	/*transition3.setOnFinished((e)->{
+	transition3.setOnFinished((e)->{
+	//	System.out.println(player3.getTranslateY());
 		if(player3.getTranslateY()>730) {
 			--lvs;
 			lives.setText("Lives: "+lvs);
 		}
 			
-	});*/
+	});
 	}
 	
 	if(ar.get(3)==1) {
@@ -304,13 +310,14 @@ public void initialize(URL arg0, ResourceBundle arg1) {
 	transition4.setNode(player4);
 	transition4.setToY(740);
 	transition4.play();
-	/*transition4.setOnFinished((e)->{
+	transition4.setOnFinished((e)->{
+	//	System.out.println(player4.getTranslateY());
 		if(player4.getTranslateY()>730) {
 			--lvs;
 			lives.setText("Lives: "+lvs);
 		}
 			
-	});*/
+	});
 	}
 	
 	if(ar.get(4)==1) {
@@ -337,13 +344,14 @@ public void initialize(URL arg0, ResourceBundle arg1) {
 	transition5.setNode(player5);
 	transition5.setToY(740);
 	transition5.play();
-/*	transition5.setOnFinished((e)->{
+	//System.out.println(player5.getTranslateY());
+	transition5.setOnFinished((e)->{
 		if(player5.getTranslateY()>730) {
 			--lvs;
 			lives.setText("Lives: "+lvs);
 		}
 			
-	});*/
+	});
 	}
 	
 	if(ar.get(5)==1) {
@@ -369,13 +377,14 @@ public void initialize(URL arg0, ResourceBundle arg1) {
 	transition6.setNode(player6);
 	transition6.setToY(740);
 	transition6.play();
-/*	transition6.setOnFinished((e)->{
+	transition6.setOnFinished((e)->{
+	//	System.out.println(player6.getTranslateY());
 		if(player6.getTranslateY()>730) {
 			--lvs;
 			lives.setText("Lives: "+lvs);
 		}
 			
-	});*/
+	});
 	}
 	 
 }
@@ -420,6 +429,11 @@ public void paraopen() {
 //			Media pick = new Media(resource.toString());
 //			MediaPlayer player1 = new MediaPlayer(pick);
 //			player1.play();
+		}
+		else
+		{
+			--lvs;
+			lives.setText("Lives: "+lvs);
 		}
 	
 	});
@@ -467,6 +481,11 @@ public void paraopen2() {
 		//	MediaPlayer player1 = new MediaPlayer(pick);
 		//	player1.play();
 		}
+		else
+		{
+			--lvs;
+			lives.setText("Lives: "+lvs);
+		}
 	
 	});
 }
@@ -513,6 +532,11 @@ public void paraopen3() {
 		//	MediaPlayer player1 = new MediaPlayer(pick);
 		//	player1.play();
 		}
+		else
+		{
+			--lvs;
+			lives.setText("Lives: "+lvs);
+		}
 		
 	});
 }
@@ -556,6 +580,11 @@ public void paraopen4() {
 		//	Media pick = new Media(Paths.get("win.mp3").toUri().toString());
 		//	MediaPlayer player = new MediaPlayer(pick);
 		//	player.play();
+		}
+		else
+		{
+			--lvs;
+			lives.setText("Lives: "+lvs);
 		}
 		
 	});
@@ -603,7 +632,11 @@ public void paraopen5() {
 		//	MediaPlayer player = new MediaPlayer(pick);
 		//	player.play();
 		}
-	
+		else
+		{
+			--lvs;
+			lives.setText("Lives: "+lvs);
+		}
 	});
 }
 
@@ -648,6 +681,11 @@ public void paraopen6() {
 		//	Media pick = new Media(Paths.get("win.mp3").toUri().toString());
 		//	MediaPlayer player = new MediaPlayer(pick);
 		//	player.play();
+		}
+		else
+		{
+			--lvs;
+			lives.setText("Lives: "+lvs);
 		}
 		
 	});

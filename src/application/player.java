@@ -17,14 +17,12 @@ public static void main(String args[]) {
 public void start(Stage stage) throws Exception {
 	stg = stage;
 	FXMLLoader loader1 = new FXMLLoader(getClass().getResource("Main.fxml"));
-	Parent root1 = loader1.load();
-	
+	Parent root1 = loader1.load();	
 	s1 = new Scene(root1,800,600);
 	
 	s1.getStylesheets().add(getClass().getResource("main.css").toExternalForm());
-	FXMLLoader loader = new FXMLLoader (getClass().getResource("thread1.fxml"));
-	Parent root = loader.load();
-	Scene s2 = new Scene(root,800,600);
+	
+
 	stg.setScene(s1);
 	
 	stg.show();	

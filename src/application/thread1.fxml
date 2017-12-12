@@ -148,5 +148,9 @@
          <font>
             <Font name="AR DARLING" size="18.0" />
          </font></Label>
+         <Label fx:id="lives" layoutX="10.0" layoutY="6.0" text="Label">
+         <font>
+            <Font name="AR DARLING" size="18.0" />
+         </font></Label>
    </children>
 </AnchorPane>

@@ -47,17 +47,18 @@ public void func(ActionEvent event) throws Exception {
 	PauseTransition pause = new PauseTransition(Duration.seconds(50));
 	pause.setOnFinished((e) ->{
 	   stage.hide();
-	   
-	   FXMLLoader loader1 = new FXMLLoader (getClass().getResource("thread2.fxml"));
-	   FXMLLoader loader3 = new FXMLLoader (getClass().getResource("Main.fxml"));
-	   
 		Parent root1 = null;
 		try {
-			if(highscore_lives.scr>0)
+			if(highscore_lives.lvs>0)
+			{
+			FXMLLoader loader1 = new FXMLLoader (getClass().getResource("thread2.fxml"));
 			root1 = loader1.load();
+			
+			}
 			else
 			{
 				flag = 1;
+				FXMLLoader loader3 = new FXMLLoader (getClass().getResource("Main.fxml"));
 				root1 = loader3.load();
 			}
 		} catch (IOException e1) {
@@ -65,7 +66,7 @@ public void func(ActionEvent event) throws Exception {
 			e1.printStackTrace();
 		}
 		Scene s4 = new Scene(root1,800,600);
-		if(highscore_lives.scr<1)
+		if(highscore_lives.lvs==0)
 		{
 			s4.getStylesheets().add(getClass().getResource("main.css").toExternalForm());
 		/*	if(highscore_lives.scr > highscore_lives.hiscr)
@@ -79,16 +80,21 @@ public void func(ActionEvent event) throws Exception {
 	   s3.show();
 	  
 	});
+	
+	
 	PauseTransition pause1 =null;
-	 if(flag==0) {
-		   pause1 = new PauseTransition(Duration.seconds(100));
+	pause1 = new PauseTransition(Duration.seconds(100));
+	
+		   
 			pause1.setOnFinished((e) ->{
-			   s3.hide();
+				 if(flag==0) {
+				s3.hide();
 			   if(highscore_lives.scr > h.hiscr)
 				{
 					h.hiscr = highscore_lives.scr;
 					writer();
 				}
+			  
 			   FXMLLoader loader3 = new FXMLLoader (getClass().getResource("Main.fxml"));
 			   Parent root1 = null;
 				try {
@@ -103,14 +109,12 @@ public void func(ActionEvent event) throws Exception {
 				
 				s3.setScene(s4);
 				s3.show();
-				
+				 }	
 	   });
-	 }
+	 
 	pause.play();
-	if(flag==0) {
-		
-		pause1.play();
-	}
+	pause1.play();
+	
 }
 
 public  void writer(){
