@@ -50,6 +50,9 @@ public class Controller2 extends highscore_lives implements Initializable {
 	ImageView plane;
 	@FXML
 	ImageView boat1;
+	@FXML
+	Label lives;
+	
 	
 	TranslateTransition boat_transition = new TranslateTransition();
 	TranslateTransition transition = new TranslateTransition();
@@ -89,6 +92,9 @@ public class Controller2 extends highscore_lives implements Initializable {
     int a5 = 0;
     
 public void random(int num) {
+	if(num==1) {
+		ar.set((int)Math.floor(Math.random()*6), 1);
+	}
 	if(num == 3) {
 	while(a1==a3||a2==a3||a2==a1)
     {
@@ -135,7 +141,7 @@ public int sum(ArrayList<Integer> list) {
 @Override
 public void initialize(URL arg0, ResourceBundle arg1) {
 	score.setText("Score: "+scr);
-	
+	lives.setText("Lives "+lvs);
 	//water.setVisible(true);
 	plane.setVisible(true);
 	player1.setVisible(false);
@@ -152,7 +158,7 @@ public void initialize(URL arg0, ResourceBundle arg1) {
 	playero2.setVisible(false);
 	boat1.setVisible(false);
 	
-	random(4);
+	random(1);
 
 	
 	transitionboat11.setDuration(Duration.seconds(5));
@@ -224,13 +230,13 @@ public void initialize(URL arg0, ResourceBundle arg1) {
 	transition1.setNode(player1);
 	transition1.setToY(740);
 	transition1.play();
-/*	transition1.setOnFinished((e)->{
+	transition1.setOnFinished((e)->{
 		if(player1.getTranslateY()>730) {
 			--lvs;
 			lives.setText("Lives: "+lvs);
 		}
 			
-	});*/
+	});
 	}
 	
 	if(ar.get(1)==1) {
@@ -256,13 +262,13 @@ public void initialize(URL arg0, ResourceBundle arg1) {
 	transition2.setNode(player2);
 	transition2.setToY(740);
 	transition2.play();
-/*	transition2.setOnFinished((e)->{
+	transition2.setOnFinished((e)->{
 		if(player2.getTranslateY()>730) {
 			--lvs;
 			lives.setText("Lives: "+lvs);
 		}
 			
-	});*/
+	});
 	}
 	
 	if(ar.get(2)==1) {
@@ -288,13 +294,13 @@ public void initialize(URL arg0, ResourceBundle arg1) {
 	transition3.setNode(player3);
 	transition3.setToY(740);
 	transition3.play();
-	/*transition3.setOnFinished((e)->{
+	transition3.setOnFinished((e)->{
 		if(player3.getTranslateY()>730) {
 			--lvs;
 			lives.setText("Lives: "+lvs);
 		}
 			
-	});*/
+	});
 	}
 	
 	if(ar.get(3)==1) {
@@ -320,13 +326,13 @@ public void initialize(URL arg0, ResourceBundle arg1) {
 	transition4.setNode(player4);
 	transition4.setToY(740);
 	transition4.play();
-	/*transition4.setOnFinished((e)->{
+	transition4.setOnFinished((e)->{
 		if(player4.getTranslateY()>730) {
 			--lvs;
 			lives.setText("Lives: "+lvs);
 		}
 			
-	});*/
+	});
 	}
 	
 	if(ar.get(4)==1) {
@@ -353,13 +359,13 @@ public void initialize(URL arg0, ResourceBundle arg1) {
 	transition5.setNode(player5);
 	transition5.setToY(740);
 	transition5.play();
-/*	transition5.setOnFinished((e)->{
+	transition5.setOnFinished((e)->{
 		if(player5.getTranslateY()>730) {
 			--lvs;
 			lives.setText("Lives: "+lvs);
 		}
 			
-	});*/
+	});
 	}
 	
 	if(ar.get(5)==1) {
@@ -385,13 +391,13 @@ public void initialize(URL arg0, ResourceBundle arg1) {
 	transition6.setNode(player6);
 	transition6.setToY(740);
 	transition6.play();
-/*	transition6.setOnFinished((e)->{
+	transition6.setOnFinished((e)->{
 		if(player6.getTranslateY()>730) {
 			--lvs;
 			lives.setText("Lives: "+lvs);
 		}
 			
-	});*/
+	});
 	}
 	 
 }
@@ -429,7 +435,8 @@ public void paraopen() {
 	transition.setToY(700);
 	transition.play();
 	transition.setOnFinished((e) ->{
-		if((fx1<=100 && fx1>=10)||(fx1<=670 && fx1>=420)) {
+		if((fx1<=93 && fx1>=-38)||(fx1<=670 && fx1>=440)) {
+			
 			++scr;
 			score.setText("Score: "+scr);
 //			URL resource = getClass().getResource("/home/manan/Programs/parachutepanic/win.wav");
@@ -437,7 +444,12 @@ public void paraopen() {
 //			MediaPlayer player1 = new MediaPlayer(pick);
 //			player1.play();
 		}
-	
+		else
+		{
+			--lvs;
+			lives.setText("Lives: "+lvs);
+		}
+//		System.out.println(fx1);
 	});
 }
 	
@@ -476,14 +488,20 @@ public void paraopen2() {
 	transition2_.setToY(700);
 	transition2_.play();
 	transition2_.setOnFinished((e) ->{
-		if((fx2<=100 && fx2>=10)||(fx2<=670 && fx2>=420)) {
+		if((fx2<=93 && fx2>=-38)||(fx2<=670 && fx2>=440)) {
 			++scr;
+			
 			score.setText("Score: "+scr);
 		//	Media pick = new Media(Paths.get("win.mp3").toUri().toString());
 		//	MediaPlayer player1 = new MediaPlayer(pick);
 		//	player1.play();
 		}
-	
+		else
+		{
+			--lvs;
+			lives.setText("Lives: "+lvs);
+		}
+	//	System.out.println(fx2);
 	});
 }
 
@@ -522,14 +540,20 @@ public void paraopen3() {
 	transition3_.setToY(700);
 	transition3_.play();
 	transition3_.setOnFinished((e) ->{
-		if((fx3<=100 && fx3>=10)||(fx3<=670 && fx3>=420)) {
+		if((fx3<=93 && fx3>=-38)||(fx3<=670 && fx3>=440)) {
 			++scr;
-	//		score.setText("Score:. "+scr);
+			
+			score.setText("Score:. "+scr);
 	//		Media pick = new Media(Paths.get("win.mp3").toUri().toString());
 		//	MediaPlayer player1 = new MediaPlayer(pick);
 		//	player1.play();
 		}
-		
+		else
+		{
+			--lvs;
+			lives.setText("Lives: "+lvs);
+		}
+//		System.out.println(fx3);
 	});
 }
 
@@ -566,13 +590,20 @@ public void paraopen4() {
 	transition4_.setToY(700);
 	transition4_.play();
 	transition4_.setOnFinished((e) ->{
-		if((fx4<=100 && fx4>=10)||(fx4<=670 && fx4>=420)) {
+		if((fx4<=93 && fx4>=-38)||(fx4<=670 && fx4>=440)) {
 			++scr;
+			
 			score.setText("Score: "+scr);
 		//	Media pick = new Media(Paths.get("win.mp3").toUri().toString());
 		//	MediaPlayer player = new MediaPlayer(pick);
 		//	player.play();
 		}
+		else
+		{
+			--lvs;
+			lives.setText("Lives: "+lvs);
+		}
+//		System.out.println(fx4);
 		
 	});
 }
@@ -612,13 +643,20 @@ public void paraopen5() {
 	transition5_.setToY(700);
 	transition5_.play();
 	transition5_.setOnFinished((e) ->{
-		if((fx5<=100 && fx5>=10)||(fx5<=670 && fx5>=420)) {
+		if((fx5<=93 && fx5>=-38)||(fx5<=670 && fx5>=440)) {
 			++scr;
 			score.setText("Score: "+scr);
+			
 		//	Media pick = new Media(Paths.get("win.mp3").toUri().toString());
 		//	MediaPlayer player = new MediaPlayer(pick);
 		//	player.play();
 		}
+		else
+		{
+			--lvs;
+			lives.setText("Lives: "+lvs);
+		}
+//	System.out.println(fx5);
 	
 	});
 }
@@ -658,13 +696,20 @@ public void paraopen6() {
 	transition6_.setToY(760);
 	transition6_.play();
 	transition6_.setOnFinished((e) ->{
-		if((fx6<=100 && fx6>=10)||(fx6<=670 && fx6>=420)) {
+		if((fx6<=93 && fx6>=-38)||(fx6<=670 && fx6>=440)) {
 			++scr;
 			score.setText("Score:. "+scr);
+			
 		//	Media pick = new Media(Paths.get("win.mp3").toUri().toString());
 		//	MediaPlayer player = new MediaPlayer(pick);
 		//	player.play();
 		}
+		else
+		{
+			--lvs;
+			lives.setText("Lives: "+lvs);
+		}
+	//	System.out.println(fx6);
 		
 	});
 }
