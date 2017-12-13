@@ -21,7 +21,11 @@ public void start(Stage stage) throws Exception {
 	s1 = new Scene(root1,800,600);
 	
 	s1.getStylesheets().add(getClass().getResource("main.css").toExternalForm());
-	
+	/*testing
+	FXMLLoader l1 = new FXMLLoader (getClass().getResource("thread2.fxml"));
+	Parent r1 = l1.load();
+	s1 = new Scene(r1,800,600);
+	testing*/
 
 	stg.setScene(s1);
 	

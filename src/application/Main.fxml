@@ -22,6 +22,6 @@
             <Font name="AR DARLING" size="31.0" />
          </font>
       </Text>
-      <Label fx:id="highscore" layoutX="289.0" layoutY="400.0" prefHeight="40.0" prefWidth="149.0" text="High Score" />
+      <Label fx:id="highscore" layoutX="275.0" layoutY="400.0" prefHeight="40.0" prefWidth="149.0" text="High Score" />
    </children>
 </Pane>

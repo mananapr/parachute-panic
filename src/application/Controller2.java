@@ -123,11 +123,7 @@ public void random(int num) {
 		 ar.set(a4, 1);
 	}
 	
-	if(num == 5) {
-		while(sum(ar)!=5) {
-			ar.set((int)Math.floor(Math.random()*6), 1);
-		}
-	}
+	
 }
 
 public int sum(ArrayList<Integer> list) {
@@ -142,7 +138,7 @@ public int sum(ArrayList<Integer> list) {
 public void initialize(URL arg0, ResourceBundle arg1) {
 	score.setText("Score: "+scr);
 	lives.setText("Lives "+lvs);
-	//water.setVisible(true);
+
 	plane.setVisible(true);
 	player1.setVisible(false);
 	player6.setVisible(false);
@@ -158,7 +154,7 @@ public void initialize(URL arg0, ResourceBundle arg1) {
 	playero2.setVisible(false);
 	boat1.setVisible(false);
 	
-	random(1);
+	random(4);
 
 	
 	transitionboat11.setDuration(Duration.seconds(5));
@@ -448,6 +444,7 @@ public void paraopen() {
 		{
 			--lvs;
 			lives.setText("Lives: "+lvs);
+			
 		}
 //		System.out.println(fx1);
 	});
